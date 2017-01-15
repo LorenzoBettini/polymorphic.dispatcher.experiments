@@ -2,10 +2,13 @@ package polymorphic.dispatcher.experiments.tests;
 
 import static org.junit.Assert.assertEquals;
 
-import org.eclipse.xtext.util.PolymorphicDispatcher;
+import java.util.Collections;
+
 import org.junit.Before;
 import org.junit.Test;
 
+import polymorphic.dispatcher.experiments.IPolymorphicDispatcher;
+import polymorphic.dispatcher.experiments.PolymorphicDispatcherOriginal;
 import polymorphic.dispatcher.experiments.tests.Types.A;
 import polymorphic.dispatcher.experiments.tests.Types.B;
 import polymorphic.dispatcher.experiments.tests.Types.C;
@@ -53,12 +56,12 @@ public class PolymorphicDispatcherTest {
 
 	protected Object target;
 
-	protected PolymorphicDispatcher<String> invoker;
+	protected IPolymorphicDispatcher<String> invoker;
 
 	@Before
 	public void init() {
 		target = new PolymorphicDispatcherTest();
-		invoker = PolymorphicDispatcher.createForSingleTarget("test", target);
+		invoker = new PolymorphicDispatcherOriginal<>("test", Collections.singletonList(target));
 	}
 
 	@Test

@@ -1,4 +1,4 @@
-package org.eclipse.xtext.util;
+package polymorphic.dispatcher.experiments;
 
 import static org.eclipse.xtext.util.ReflectionUtil.getObjectType;
 
@@ -13,6 +13,7 @@ import java.util.List;
 
 import org.apache.log4j.Logger;
 import org.eclipse.xtext.util.Exceptions;
+import org.eclipse.xtext.util.PolymorphicDispatcher;
 import org.eclipse.xtext.util.SimpleCache;
 
 import com.google.common.base.Function;
@@ -21,7 +22,7 @@ import com.google.common.base.Predicate;
 /**
  * @author Sven Efftinge - Initial contribution and API
  */
-public class PolymorphicDispatcher<RT> {
+public class PolymorphicDispatcherOriginal<RT> implements IPolymorphicDispatcher<RT> {
 
 	@SuppressWarnings("unused")
 	private static final Logger log = Logger.getLogger(PolymorphicDispatcher.class);
@@ -137,24 +138,24 @@ public class PolymorphicDispatcher<RT> {
 		return new PolymorphicDispatcher<T>(methodName, Arrays.asList(targets));
 	}
 
-	public PolymorphicDispatcher(final String methodName, final List<? extends Object> targets) {
+	public PolymorphicDispatcherOriginal(final String methodName, final List<? extends Object> targets) {
 		this(methodName, 1, 1, targets);
 	}
 
-	public PolymorphicDispatcher(final String methodName, final int minParams, final int maxParams, final List<? extends Object> targets) {
+	public PolymorphicDispatcherOriginal(final String methodName, final int minParams, final int maxParams, final List<? extends Object> targets) {
 		this(methodName, minParams, maxParams, targets, new DefaultErrorHandler<RT>());
 	}
 
-	public PolymorphicDispatcher(final String methodName, final int minParams, final int maxParams, final List<? extends Object> targets,
+	public PolymorphicDispatcherOriginal(final String methodName, final int minParams, final int maxParams, final List<? extends Object> targets,
 			ErrorHandler<RT> handler) {
 		this(targets, new MethodNameFilter(methodName, minParams, maxParams), handler);
 	}
 
-	public PolymorphicDispatcher(final List<? extends Object> targets, Predicate<Method> methodFilter) {
+	public PolymorphicDispatcherOriginal(final List<? extends Object> targets, Predicate<Method> methodFilter) {
 		this(targets, methodFilter, new DefaultErrorHandler<RT>());
 	}
 
-	public PolymorphicDispatcher(final List<? extends Object> targets, Predicate<Method> methodFilter, ErrorHandler<RT> handler) {
+	public PolymorphicDispatcherOriginal(final List<? extends Object> targets, Predicate<Method> methodFilter, ErrorHandler<RT> handler) {
 		this.targets = targets;
 		this.methodFilter = methodFilter;
 		this.handler = handler;
@@ -347,7 +348,7 @@ public class PolymorphicDispatcher<RT> {
 		Collections.sort(cachedDescriptors, new Comparator<MethodDesc>() {
 			@Override
 			public int compare(MethodDesc o1, MethodDesc o2) {
-				return PolymorphicDispatcher.this.compare(o1, o2);
+				return PolymorphicDispatcherOriginal.this.compare(o1, o2);
 			}
 		});
 		return cachedDescriptors;
