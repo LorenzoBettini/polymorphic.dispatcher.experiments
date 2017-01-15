@@ -22,7 +22,7 @@ import com.google.common.base.Predicate;
 /**
  * @author Sven Efftinge - Initial contribution and API
  */
-public class PolymorphicDispatcherTotalOrder<RT> implements IPolymorphicDispatcher<RT> {
+public class PolymorphicDispatcherTotalOrder<RT> {
 
 	@SuppressWarnings("unused")
 	private static final Logger log = Logger.getLogger(PolymorphicDispatcher.class);
