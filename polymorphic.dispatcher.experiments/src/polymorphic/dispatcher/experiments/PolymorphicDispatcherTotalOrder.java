@@ -31,7 +31,7 @@ public class PolymorphicDispatcherTotalOrder<RT> implements IPolymorphicDispatch
 
 	private List<MethodDesc> declaredMethodsOrderedBySpecificParameterType;
 
-	private static final int UNRELATED = -2;
+	private static final int UNRELATED = Integer.MIN_VALUE;
 
 	public static class DefaultErrorHandler<RT> implements ErrorHandler<RT> {
 		@Override
