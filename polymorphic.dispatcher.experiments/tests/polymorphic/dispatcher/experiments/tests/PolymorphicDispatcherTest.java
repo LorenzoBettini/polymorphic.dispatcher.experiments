@@ -11,11 +11,16 @@ import polymorphic.dispatcher.experiments.tests.Types.B;
 import polymorphic.dispatcher.experiments.tests.Types.C;
 import polymorphic.dispatcher.experiments.tests.Types.D;
 import polymorphic.dispatcher.experiments.tests.Types.S;
+import polymorphic.dispatcher.experiments.tests.Types.S1;
 
 public class PolymorphicDispatcherTest {
 
 	public String test(S s) {
 		return "test(S)";
+	}
+
+	public String test(S1 s) {
+		return "test(S1)";
 	}
 
 	public String test(A a) {
@@ -30,9 +35,9 @@ public class PolymorphicDispatcherTest {
 		return "test(C)";
 	}
 
-	Object target;
+	protected Object target;
 
-	PolymorphicDispatcher<String> invoker;
+	protected PolymorphicDispatcher<String> invoker;
 
 	@Before
 	public void init() {
@@ -58,5 +63,15 @@ public class PolymorphicDispatcherTest {
 	@Test
 	public void testD() {
 		assertEquals("test(S)", invoker.invoke(new D()));
+	}
+
+	@Test
+	public void testS() {
+		assertEquals("test(S)", invoker.invoke(new S()));
+	}
+
+	@Test
+	public void testS1() {
+		assertEquals("test(S1)", invoker.invoke(new S1()));
 	}
 }

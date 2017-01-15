@@ -5,7 +5,7 @@ public class Types {
 	static class S {
 	}
 
-	static class A extends C {
+	static class S1 {
 	}
 
 	static class B extends S {
@@ -14,6 +14,10 @@ public class Types {
 	static class C extends S {
 	}
 
+	static class A extends C {
+	}
+
 	static class D extends S {
 	}
+
 }
