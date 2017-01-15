@@ -10,6 +10,10 @@ import polymorphic.dispatcher.experiments.tests.Types.A;
 import polymorphic.dispatcher.experiments.tests.Types.B;
 import polymorphic.dispatcher.experiments.tests.Types.C;
 import polymorphic.dispatcher.experiments.tests.Types.D;
+import polymorphic.dispatcher.experiments.tests.Types.I1;
+import polymorphic.dispatcher.experiments.tests.Types.I12;
+import polymorphic.dispatcher.experiments.tests.Types.I12bis;
+import polymorphic.dispatcher.experiments.tests.Types.I2;
 import polymorphic.dispatcher.experiments.tests.Types.S;
 import polymorphic.dispatcher.experiments.tests.Types.S1;
 
@@ -33,6 +37,18 @@ public class PolymorphicDispatcherTest {
 
 	public String test(C c) {
 		return "test(C)";
+	}
+
+	public String test(I1 c) {
+		return "test(I1)";
+	}
+
+	public String test(I2 c) {
+		return "test(I2)";
+	}
+
+	public String test(I12 c) {
+		return "test(I12)";
 	}
 
 	protected Object target;
@@ -73,5 +89,25 @@ public class PolymorphicDispatcherTest {
 	@Test
 	public void testS1() {
 		assertEquals("test(S1)", invoker.invoke(new S1()));
+	}
+
+	@Test
+	public void testI1() {
+		assertEquals("test(I1)", invoker.invoke(new I1() {}));
+	}
+
+	@Test
+	public void testI2() {
+		assertEquals("test(I2)", invoker.invoke(new I2() {}));
+	}
+
+	@Test
+	public void testI12() {
+		assertEquals("test(I12)", invoker.invoke(new I12() {}));
+	}
+
+	@Test(expected=IllegalStateException.class)
+	public void testI12bis() {
+		assertEquals("test(I12)", invoker.invoke(new I12bis() {}));
 	}
 }
