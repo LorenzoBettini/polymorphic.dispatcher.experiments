@@ -10,7 +10,7 @@ public class PolymorphicDispatcherNoSortingTest extends AbstractPolymorphicDispa
 
 	@Override
 	protected void createDispatcher() {
-		invoker = new PolymorphicDispatcherNoSorting<>("test", Collections.singletonList(data));
+		invoker = new PolymorphicDispatcherNoSorting<>("test", Collections.singletonList(target));
 	}
 
 	@Override

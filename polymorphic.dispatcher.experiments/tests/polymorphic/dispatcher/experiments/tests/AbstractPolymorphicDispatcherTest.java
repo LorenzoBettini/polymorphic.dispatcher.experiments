@@ -18,7 +18,7 @@ import polymorphic.dispatcher.experiments.tests.Types.S1;
 
 public abstract class AbstractPolymorphicDispatcherTest {
 
-	protected Target data = new Target();
+	protected Target target = new Target();
 
 	@Before
 	public void init() {

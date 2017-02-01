@@ -10,7 +10,7 @@ public class PolymorphicDispatcherTreeSetTest extends AbstractPolymorphicDispatc
 
 	@Override
 	protected void createDispatcher() {
-		invoker = new PolymorphicDispatcherTreeSet<>("test", Collections.singletonList(data));
+		invoker = new PolymorphicDispatcherTreeSet<>("test", Collections.singletonList(target));
 	}
 
 	@Override

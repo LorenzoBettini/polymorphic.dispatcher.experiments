@@ -10,7 +10,7 @@ public class PolymorphicDispatcherTotalOrderTest extends AbstractPolymorphicDisp
 
 	@Override
 	protected void createDispatcher() {
-		invoker = new PolymorphicDispatcherTotalOrder<>("test", Collections.singletonList(data));
+		invoker = new PolymorphicDispatcherTotalOrder<>("test", Collections.singletonList(target));
 	}
 
 	@Override

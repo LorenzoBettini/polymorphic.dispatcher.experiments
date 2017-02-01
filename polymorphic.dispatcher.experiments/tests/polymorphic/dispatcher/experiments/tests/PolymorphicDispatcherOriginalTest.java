@@ -10,7 +10,7 @@ public class PolymorphicDispatcherOriginalTest extends AbstractPolymorphicDispat
 
 	@Override
 	protected void createDispatcher() {
-		invoker = new PolymorphicDispatcher<>("test", Collections.singletonList(data));
+		invoker = new PolymorphicDispatcher<>("test", Collections.singletonList(target));
 	}
 
 	@Override
