@@ -2,41 +2,41 @@ package polymorphic.dispatcher.experiments.tests;
 
 public class Types {
 
-	static class S {
+	static public class S {
 	}
 
-	static class S1 {
+	static public class S1 {
 	}
 
-	static class B extends S {
+	static public class B extends S {
 	}
 
-	static class C extends S {
+	static public class C extends S {
 	}
 
-	static class A extends C {
+	static public class A extends C {
 	}
 
-	static class D extends S {
+	static public class D extends S {
 	}
 
-	static interface I1 {
+	static public interface I1 {
 		
 	}
 	
-	static interface I2 {
+	static public interface I2 {
 		
 	}
 	
-	static interface I12 extends I1, I2 {
+	static public interface I12 extends I1, I2 {
 		
 	}
 
-	static interface I12bis extends I1, I2 {
+	static public interface I12bis extends I1, I2 {
 		
 	}
 
-	static interface I12d extends I12 {
+	static public interface I12d extends I12 {
 		
 	}
 }

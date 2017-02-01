@@ -2,6 +2,8 @@ package polymorphic.dispatcher.experiments.tests;
 
 import static org.junit.Assert.assertEquals;
 
+import java.io.IOException;
+
 import org.junit.Before;
 import org.junit.Test;
 
@@ -21,7 +23,7 @@ public abstract class AbstractPolymorphicDispatcherTest {
 	protected Target target = new Target();
 
 	@Before
-	public void init() {
+	public void init() throws IOException, InstantiationException, IllegalAccessException {
 		createDispatcher();
 	}
 
@@ -78,4 +80,5 @@ public abstract class AbstractPolymorphicDispatcherTest {
 	public void testI12bis() {
 		invoke(new I12bis() {});
 	}
+
 }
